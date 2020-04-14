@@ -1,0 +1,28 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+    id 'org.beryx.jlink' version '2.17.2'
+}
+
+javafx {
+    version = "14"
+    modules = [ 'javafx.controls' ] // you can add 'javafx.fxml', ...
+}
+
+group 'flpe'
+version '1.0-SNAPSHOT'
+
+// Use Java 13 only if you use Gradle 6+
+// The JDK folder must be added to the environment variable JAVA_HOME (https://www.wikihow.com/Set-Java-Home)
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+jlink {
+    launcher {
+        name = 'exe_name'
+    }
+}
+mainClassName = 'javafx.jlink.example.main/gui.Main'
